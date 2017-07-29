@@ -18,6 +18,9 @@ function backendDataLoaded(data) {
             var detailsButton = $('<button id="homeDetailsButton' + index + '"/>')
                 .text('Home Details')
                 .attr('title', JSON.stringify(currentListing));
+
+            //TODO: you can change button to some other element and change tooltip (title attribute to actual div with the same data)
+
             $(element).after(detailsButton);
         }
     });
