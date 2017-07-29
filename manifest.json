@@ -5,19 +5,15 @@
   "description": "Finding a suitable rental",
   "version": "1.0",
 
-  "page_action": {
+  "browser_action": {
     "default_icon": "homeIcon32x32.png",
     "default_title": "Check additional info",
     "default_popup": "popup.html"
   },
 
-  "background": {
-    "scripts": ["eventPage.js"],
-    "persistent": false
-  },
-
   "permissions": [
     "declarativeContent",
+    "tabs",
     "activeTab",
     "https://home-space.s3.amazonaws.com/"
   ]
