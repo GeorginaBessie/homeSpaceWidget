@@ -1,0 +1,38 @@
+table.homeSpace {
+    border-collapse: collapse;
+    border: black;
+    width: 100%;
+    border-spacing: 0;
+}
+
+table.homeSpace th:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+table.homeSpace th:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+table.homeSpace th:only-child {
+    border-radius: 6px 6px 0 0;
+}
+
+table.homeSpace th {
+    background-color: #000080;
+    color: white;
+    padding: 5px;
+    text-align: left;
+}
+
+table.homeSpace td {
+    background-color: white;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    padding: 5px;
+    text-align: left;
+}
+
+.homeSpace td, th {
+    padding: 5px;
+    text-align: left;
+}
