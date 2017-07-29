@@ -1,4 +1,4 @@
-// document.body.style.backgroundColor = 'red';
+ // document.body.style.backgroundColor = 'red';
 
 var listingNumber, tableHtml;
 
@@ -29,11 +29,19 @@ function backendDataLoaded(data) {
     });
 
     if (currentListings.length) {
-        console.log(currentListings[0]);
+        //TODO: map properties of currentListings[0] object to tableHtml row
 
-        //TODO: map properties of currentListings[0] object to tableHtml rows
+        // $('#location').append(
+        //     $.map(data.Countries, function (country, index) {
+        //     	return '<tr><td>' + country + '</td><td>' + data.Cities[index] + '</td></tr>';
+        // }).join());
 
-        $("#ListingTitle_container").append(tableHtml);
+       $("#ListingTitle_container").append(
+        '<table class="homeSpace"> <tr><td>Yearly Average Sunlight: </td><td> ' + currentListings[0].avg_sunlight_kwh + ' kwh</td></tr><table>'
+      );
+
+
+
+
     }
 }
-
