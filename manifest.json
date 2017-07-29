@@ -18,6 +18,7 @@
 
   "permissions": [
     "declarativeContent",
+    "tabs",
     "activeTab",
     "https://home-space.s3.amazonaws.com/"
   ]
