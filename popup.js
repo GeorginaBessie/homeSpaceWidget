@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function loadDataFromPage() {
     chrome.tabs.executeScript(null, {file: "jquery-3.2.1.min.js"});
-    chrome.tabs.executeScript(null, {file: "contentScript.js"});
+    chrome.tabs.executeScript(null, {file: "listingContentScript.js"});
 }
 
 function listingReceived(currentListing) {
