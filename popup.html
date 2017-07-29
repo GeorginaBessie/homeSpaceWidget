@@ -1,72 +1,67 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <title>Home Popup</title>
     <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-	  #thead {
-				text-align: left;
-				background-color: grey;
-			
-	  }
-	  
-	  table {
-				border: 1px black;
-	  }
-	  
-	  table th {
-					text-align:left;
-	  }
+        body {
+            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+            font-size: 100%;
+        }
+
+        #status {
+            white-space: pre;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 400px;
+        }
+
+        #thead {
+            text-align: left;
+            background-color: grey;
+
+        }
+
+        table {
+            border: 1px black;
+        }
+
+        table th {
+            text-align: left;
+        }
     </style>
-	<script src="jquery-3.2.1.min.js"></script>
+
+    <script src="jquery-3.2.1.min.js"></script>
     <script src="popup.js"></script>
-	
-	
-  </head>
-  
-  <body>
-    <div id="status"></div>
-    
-	<table>
-			<tr>
-			<th> The property details </th>
-			</tr>
-			<tr>
-			<th id="thead"> Attribute</th>
-			<th id= "thead">Value</th>
-			<tr>
-			<th>Address</th>
-			</tr>
-			<tr>
-			<th>Price</th>
-			</tr>
-			<tr>
-			<th>Suburb</th>
-			</tr>
-			<tr>
-			<th>Bedrooms</th>
-			</tr>
-			<tr>
-			<th>City</th>
-			</tr>
-			<tr>
-			<th>Sun</th>
-			</tr>
-			
-			
-	
-			
-	</table>
-  </body>
+</head>
+
+<body>
+<table>
+    <tr>
+        <th> The property details</th>
+    </tr>
+    <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+    <tr>
+        <th>Address</th>
+    </tr>
+    <tr>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <th>Suburb</th>
+    </tr>
+    <tr>
+        <th>Bedrooms</th>
+    </tr>
+    <tr>
+        <th>City</th>
+    </tr>
+    <tr>
+        <th>Sun</th>
+    </tr>
+
+</table>
+</body>
 </html>
 
