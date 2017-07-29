@@ -11,10 +11,35 @@
     "default_popup": "popup.html"
   },
 
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://www.trademe.co.nz/Browse/CategoryAttributeSearchResults*"],
+      "js": ["jquery-3.2.1.min.js", "searchContentScript.js"]
+    },
+    {
+      "matches": ["*://www.trademe.co.nz/property/residential-property-to-rent/*"],
+      "js": ["jquery-3.2.1.min.js", "listingContentScript.js"],
+      "css": ["table.css"]
+    },
+    {
+      "matches": ["*://www.trademe.co.nz/Browse/Listing*"],
+      "js": ["jquery-3.2.1.min.js", "listingContentScript.js"],
+      "css": ["table.css"]
+    }
+  ],
+
   "permissions": [
     "declarativeContent",
     "tabs",
     "activeTab",
     "https://home-space.s3.amazonaws.com/"
+  ],
+
+  "web_accessible_resources": [
+    "table.html"
   ]
 }
