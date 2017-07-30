@@ -1,6 +1,5 @@
 // document.body.style.backgroundColor = 'red';
 
-
 $.get("https://home-space.s3.amazonaws.com/data.json", backendDataLoaded);
 
 function backendDataLoaded(data) {

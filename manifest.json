@@ -22,7 +22,7 @@
     },
     {
       "matches": ["*://www.trademe.co.nz/property/residential-property-to-rent/*"],
-      "js": ["jquery-3.2.1.min.js", "listingContentScript.js"],
+      "js": ["jquery-3.2.1.min.js", "listingContentScript.js", "getListingIdsFromSearchPage.js"],
       "css": ["table.css"]
     },
     {

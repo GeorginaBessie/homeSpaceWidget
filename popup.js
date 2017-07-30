@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('pop up js ')
+
     chrome.tabs.executeScript(null, {file: "getListingIdContentScript.js"});
     chrome.tabs.executeScript(null, {file: "getListingIdsFromSearchPage.js"});
 
