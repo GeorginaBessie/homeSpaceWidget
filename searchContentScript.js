@@ -15,7 +15,9 @@ const matchListingId = (listings, jsonListingId) =>
 // appending information to the page
 const newDetails = jsonEntry =>
   $("<div/>", {
-    text: "sunshine: " + jsonEntry.avg_sunlight_kwh + " kwh/m2"
+    text: jsonEntry.avg_sunlight_kwh ?
+            "sunshine: " + jsonEntry.avg_sunlight_kwh + " kwh/m2" :
+            null
   })
 
 // receive data.json file and inject new data onto listings whenever we can

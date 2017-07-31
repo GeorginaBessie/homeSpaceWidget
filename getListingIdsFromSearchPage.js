@@ -1,11 +1,11 @@
 //getListingIds from search page
 // chrome.runtime.onMessage.addListener(messageReceivedFromPopup);
+
 console.log('getlistings from seachpage')
 //
 // function messageReceivedFromPopup(message, sender, sendResponseBackToPopup) {
 //     if (message === 'GET_LISTING_ID') {
 //         chrome.runtime.onMessage.removeListener(messageReceivedFromPopup);
-var potentData
 var listingIds = []
 getAddedValueData()
 
@@ -20,32 +20,33 @@ const findChild = childnodes => {
 }
 
 function checkListings(data) {
-        data = JSON.parse(data)
-        var listingLinks = document.getElementsByClassName('dotted')
-        listingIds = [];
-        if (listingLinks.length) {
-            for (var i = 0; i < listingLinks.length; i++) {
-              listingIds.push(getListingId(listingLinks[i]));
-            }
-        }
-        data = data.filter((value) => listingIds.indexOf(value.listing_id) != -1)
+  data = JSON.parse(data)
+  var listingLinks = document.getElementsByClassName('dotted')
+  listingIds = [];
+  if (listingLinks.length) {
+      for (var i = 0; i < listingLinks.length; i++) {
+        listingIds.push(getListingId(listingLinks[i]));
+      }
+  }
+  data = data.filter((value) => listingIds.indexOf(value.listing_id) != -1)
 
-        for (var i = 0; i < listingLinks.length; i++) {
-          console.log("listing id =", getListingId(listingLinks[i]))
-          const jsonEntryIndex = data.indexOf(getListingId(listingLinks[i]))
-          if (jsonEntryIndex != -1) {
-            console.log("jsonEntryIndex =", jsonEntryIndex)
-            const wrapper = listingLinks[i].parentElement.parentElement.parentElement
+  for (var i = 0; i < listingLinks.length; i++) {
+    console.log("listing id =", getListingId(listingLinks[i]))
+    const jsonEntryIndex = data.indexOf(getListingId(listingLinks[i]))
+    if (jsonEntryIndex != -1) {
+      console.log("jsonEntryIndex =", jsonEntryIndex)
+      const wrapper = listingLinks[i].parentElement.parentElement.parentElement
 
-            const child = findChild(wrapper.childNodes)
-            console.log("child =", child)
-            const injectedElem = document.createElement("div")
+      const child = findChild(wrapper.childNodes)
+      console.log("child =", child)
+      const injectedElem = document.createElement("div")
 
-            injectedElem.innerHTML(`sunshine = ${data[jsonEntryIndex].avg_sunlight_kwh}`)
-            wrapper.child.appendChild(injectedElem)
-          }
-          console.log("no entry for val", data[jsonEntryIndex])
-        }
+      if (data[jsonEntryIndex].avg_sunlight_kwh) {
+        injectedElem.innerHTML(`sunshine = ${data[jsonEntryIndex].avg_sunlight_kwh}`)
+        wrapper.child.appendChild(injectedElem)
+      }
+    }
+  }
 
 }
 
@@ -69,12 +70,6 @@ function checkListings(data) {
 // }
 function getAddedValueData() {
   return $.get( "https://home-space.s3.amazonaws.com/data.json", function( data ) {
-        checkListings(data);
-
-        console.log('data.json length ', data)
-        return data;
+    checkListings(data);
   });
-}
-function dataLoaded() {
-  console.log('loaded:', potentData)
 }
