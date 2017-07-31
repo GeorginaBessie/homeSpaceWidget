@@ -1,26 +1,37 @@
-// document.body.style.backgroundColor = 'red';
+console.log("searchContentScript.js")
 
-$.get("https://home-space.s3.amazonaws.com/data.json", backendDataLoaded);
+$.get("https://home-space.s3.amazonaws.com/data.json", improveListings);
 
-function backendDataLoaded(data) {
-    var allListings = JSON.parse(data);
-    var allListingsMap = allListings.reduce(function (acc, next) {
-        acc[next.listing_id] = next;
-        return acc;
-    }, {});
+const getListingId = listing =>
+  $(listing)
+    .find('a.dotted')
+    .attr('href')
+    .split('auction-')[1].split('.')[0]
 
-    $(".saveToWatchlist").each(function(index, element) {
-        var link = $(element).find('a').attr('href');
-        var listingId = link.split('id=')[1].split('&')[0];
-        var currentListing = allListingsMap[listingId];
-        if (currentListing) {
-            var detailsButton = $('<button id="homeDetailsButton' + index + '"/>')
-                .text('Home Details')
-                .attr('title', JSON.stringify(currentListing));
+const matchListingId = (listings, jsonListingId) =>
+  $(listings).filter((i, elem) =>
+    getListingId(elem) == jsonListingId)
 
-            //TODO: you can change button to some other element and change tooltip (title attribute to actual div with the same data)
+// appending information to the page
+const newDetails = jsonEntry =>
+  $("<div/>", {
+    text: "sunshine: " + jsonEntry.avg_sunlight_kwh + " kwh/m2"
+  })
 
-            $(element).after(detailsButton);
-        }
-    });
+// receive data.json file and inject new data onto listings whenever we can
+function improveListings (data) {
+  data = JSON.parse(data)
+
+  const listings = $('.property-card')
+
+  // map over json, matching on listing IDs
+  return data.forEach(value => {
+    const singleListing = matchListingId(listings, value.listing_id)
+
+    if (singleListing) {
+      return $(singleListing)
+        .find('.property-card-attribute-details')
+        .append(newDetails(value))
+    }
+  })
 }

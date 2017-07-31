@@ -17,7 +17,10 @@
 
   "content_scripts": [
     {
-      "matches": ["*://www.trademe.co.nz/Browse/CategoryAttributeSearchResults*"],
+      "matches": [
+        "*://www.trademe.co.nz/Browse/CategoryAttributeSearchResults*",
+        "*://www.trademe.co.nz/browse/categoryattributesearchresults*"
+      ],
       "js": ["jquery-3.2.1.min.js", "searchContentScript.js"]
     },
     {
