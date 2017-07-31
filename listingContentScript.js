@@ -39,9 +39,5 @@ function backendDataLoaded(data) {
        $("#ListingTitle_container").append(
         '<table class="homeSpace"> <tr><td>Yearly Average Sunlight: </td><td> ' + currentListings[0].avg_sunlight_kwh + ' kwh</td></tr><table>'
       );
-
-
-
-
     }
 }
